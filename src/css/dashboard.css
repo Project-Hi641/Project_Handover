@@ -1,0 +1,591 @@
+/* Ensure the content area has comfy padding */
+.dashboard-content {
+  padding: clamp(12px, 3vw, 24px);
+}
+
+/* Centered card-style placeholder */
+.dash-placeholder {
+  max-width: 760px;
+  margin: clamp(16px, 6vw, 48px) auto;
+  padding: clamp(16px, 4vw, 32px);
+  text-align: center;
+  background: var(--bs-body-bg, #fff);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* Simple bar-chart icon */
+.dash-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+  fill: currentColor;
+  color: #6c757d; /* muted */
+}
+
+/* Button row */
+.dash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Small helper text */
+.dash-tip {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Health Data Carousel Styles */
+.health-carousel {
+  background: transparent;
+  border: none;
+  position: relative;
+  /* Consistent padding to accommodate controls and indicators */
+  padding-bottom: 50px;
+  /* Consistent margin for visual spacing */
+  margin-bottom: 20px;
+}
+
+/* Hypnogram Carousel Styles */
+.hypnogram-carousel {
+  background: transparent;
+  border: none;
+}
+
+.hypnogram-carousel .carousel-inner {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hypnogram-carousel .carousel-control-prev,
+.hypnogram-carousel .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.hypnogram-carousel .carousel-control-prev:hover,
+.hypnogram-carousel .carousel-control-next:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hypnogram-carousel .carousel-indicators {
+  bottom: -40px;
+}
+
+.hypnogram-carousel .carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #dee2e6;
+  border: none;
+  margin: 0 4px;
+}
+
+.hypnogram-carousel .carousel-indicators .active {
+  background-color: #0d6efd;
+}
+
+/* Hypnogram Popup Styles */
+.hypnogram-popup .modal-dialog {
+  max-width: 95vw;
+  margin: 1rem auto;
+}
+
+.hypnogram-popup .modal-content {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.hypnogram-popup-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 1rem 1.5rem;
+  border-radius: 16px 16px 0 0;
+}
+
+.hypnogram-popup-body {
+  background: #ffffff;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.hypnogram-popup-content {
+  padding: 1.5rem;
+}
+
+/* Apple Watch-style hypnogram chart improvements */
+.hypnogram-popup .hypnogram-carousel {
+  background: transparent;
+}
+
+.hypnogram-popup .hypnogram-carousel .carousel-inner {
+  border-radius: 12px;
+  background: #f8f9fa;
+  padding: 1rem;
+}
+
+.hypnogram-popup .card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+.hypnogram-popup .card-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 12px 12px 0 0;
+  padding: 1rem 1.25rem;
+}
+
+.hypnogram-popup .card-body {
+  padding: 1.25rem;
+}
+
+/* Enhanced sleep stage colors for popup */
+.hypnogram-popup .sleep-stage-awake {
+  background-color: #ff8c00 !important;
+}
+
+.hypnogram-popup .sleep-stage-rem {
+  background-color: #1e90ff !important;
+}
+
+.hypnogram-popup .sleep-stage-core {
+  background-color: #0000ff !important;
+}
+
+.hypnogram-popup .sleep-stage-deep {
+  background-color: #8a2be2 !important;
+}
+
+/* Popup-specific carousel controls */
+.hypnogram-popup .carousel-control-prev,
+.hypnogram-popup .carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.hypnogram-popup .carousel-control-prev:hover,
+.hypnogram-popup .carousel-control-next:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hypnogram-popup .carousel-control-prev-icon,
+.hypnogram-popup .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive adjustments for popup */
+@media (max-width: 768px) {
+  .hypnogram-popup .modal-dialog {
+    max-width: 100vw;
+    margin: 0;
+    height: 100vh;
+  }
+  
+  .hypnogram-popup .modal-content {
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .hypnogram-popup-body {
+    max-height: calc(100vh - 80px);
+  }
+}
+
+.health-carousel .carousel-inner {
+  border-radius: 12px;
+  overflow: visible;
+  /* Consistent vertical padding */
+  padding: 20px 0;
+  margin: -20px 0;
+}
+
+.health-carousel .carousel-item {
+  /* Consistent padding for all carousel items */
+  padding: 0;
+  transition: transform 0.6s ease-in-out;
+}
+
+.health-carousel .carousel-item .row {
+  /* Consistent margin for rows in carousel items */
+  margin: 0;
+}
+
+.health-carousel .carousel-item .col-lg-8,
+.health-carousel .carousel-item .col-lg-4,
+.health-carousel .carousel-item .col-lg-12 {
+  /* Consistent padding for columns in carousel items */
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.health-carousel .carousel-control-prev,
+.health-carousel .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  /* Fixed vertical position - 250px from top of carousel */
+  top: 250px;
+  transform: translateY(0);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.health-carousel .carousel-control-prev:hover,
+.health-carousel .carousel-control-next:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.health-carousel .carousel-control-prev {
+  /* Consistent horizontal positioning - 15px from left edge */
+  left: 15px;
+}
+
+.health-carousel .carousel-control-next {
+  /* Consistent horizontal positioning - 15px from right edge */
+  right: 15px;
+}
+
+/* Consistent icon sizing */
+.health-carousel .carousel-control-prev-icon,
+.health-carousel .carousel-control-next-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.health-carousel .carousel-indicators {
+  /* Consistent vertical positioning - 40px below carousel */
+  bottom: -40px;
+  margin-bottom: 0;
+  /* Consistent horizontal positioning - centered */
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.health-carousel .carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #dee2e6;
+  border: none;
+  /* Consistent spacing between indicators */
+  margin: 0 6px;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.health-carousel .carousel-indicators [data-bs-target]:hover {
+  opacity: 0.9;
+  background-color: #adb5bd;
+}
+
+.health-carousel .carousel-indicators .active {
+  background-color: #007bff;
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* Mobile responsiveness - maintain consistent positioning */
+@media (max-width: 768px) {
+  .health-carousel .carousel-control-prev,
+  .health-carousel .carousel-control-next {
+    width: 44px;
+    height: 44px;
+    /* Adjusted fixed position for mobile */
+    top: 200px;
+  }
+  
+  .health-carousel .carousel-control-prev {
+    /* Consistent horizontal positioning on mobile - 10px from left */
+    left: 10px;
+  }
+  
+  .health-carousel .carousel-control-next {
+    /* Consistent horizontal positioning on mobile - 10px from right */
+    right: 10px;
+  }
+  
+  .health-carousel .carousel-control-prev-icon,
+  .health-carousel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .health-carousel .carousel-indicators {
+    /* Consistent spacing on mobile */
+    bottom: -35px;
+  }
+  
+  .health-carousel .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+}
+
+/* Chart container improvements */
+.health-carousel .card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.health-carousel .card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.health-carousel .card-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Stats cards styling */
+.health-carousel .card-body h3 {
+  color: #495057;
+  font-weight: 600;
+}
+
+.health-carousel .card-body h6 {
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+}
+
+/* Sleep chart specific styling */
+.health-carousel .card-header h5 {
+  color: #28a745;
+}
+
+.health-carousel .badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+/* Sleep stage colors */
+.text-purple {
+  color: #a78bfa !important;
+}
+
+/* Sleep stage legend styling */
+.health-carousel .text-primary {
+  color: #60a5fa !important;
+}
+
+.health-carousel .text-info {
+  color: #2563eb !important;
+}
+
+.health-carousel .text-warning {
+  color: #ffa94d !important;
+}
+
+/* Heart rate context colors */
+.health-carousel .text-purple {
+  color: #6f42c1 !important;
+}
+
+.health-carousel .text-success {
+  color: #28a745 !important;
+}
+
+.health-carousel .text-danger {
+  color: #ff4d6d !important;
+}
+
+.health-carousel .text-info {
+  color: #17a2b8 !important;
+}
+
+/* Heart rate zone background colors and styling */
+.heart-rate-zone-bg {
+  position: relative;
+}
+
+.heart-rate-zone-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Zone background colors for heart rate chart */
+.zone-rest-bg {
+  background: linear-gradient(to right, rgba(23, 162, 184, 0.1) 0%, rgba(23, 162, 184, 0.1) 100%);
+}
+
+.zone-light-bg {
+  background: linear-gradient(to right, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.1) 100%);
+}
+
+.zone-moderate-bg {
+  background: linear-gradient(to right, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+}
+
+.zone-hard-bg {
+  background: linear-gradient(to right, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.1) 100%);
+}
+
+/* Heart rate zone legend styling */
+.zone-legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.zone-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.zone-legend-rest {
+  background-color: #17a2b8;
+}
+
+.zone-legend-light {
+  background-color: #28a745;
+}
+
+.zone-legend-moderate {
+  background-color: #ffc107;
+}
+
+.zone-legend-hard {
+  background-color: #dc3545;
+}
+
+/* Heart rate chart specific styling */
+.health-carousel .card-header h5 {
+  color: #dc3545;
+}
+
+/* Activity Rings Styling */
+.activity-rings-legend {
+  width: 100%;
+  max-width: 250px;
+}
+
+.activity-rings-legend .progress {
+  background-color: #2a2a2a;
+  opacity: 0.3;
+}
+
+.activity-rings-legend .progress-bar {
+  transition: width 0.5s ease-in-out;
+}
+
+/* Activity rings carousel item styling */
+.health-carousel .carousel-item .activity-rings-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.health-carousel .activity-rings-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+}
+
+/* Activity ring glow effects */
+@keyframes ring-pulse {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.activity-rings svg {
+  animation: fade-in 0.8s ease-out;
+}
+
+.activity-rings svg circle:not([opacity]) {
+  animation: ring-pulse 3s ease-in-out infinite;
+}
+
+/* Smooth transitions for activity rings */
+.activity-rings-day {
+  animation: fade-in 0.9s ease-out;
+}
+
+/* Summary stats cards for activity rings */
+.activity-summary-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments for activity rings */
+@media (max-width: 768px) {
+  .activity-rings-day {
+    min-width: 150px;
+  }
+  
+  .activity-rings-legend {
+    font-size: 0.85rem;
+  }
+}

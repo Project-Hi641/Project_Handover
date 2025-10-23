@@ -1,0 +1,33 @@
+@keyframes pop-bounce {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  60% { transform: scale(1.15); opacity: 1; }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.goal-congrats-anim {
+  animation: pop-bounce 0.7s cubic-bezier(.23,1.12,.67,.99);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--ok, var(--bs-success));
+  text-align: center;
+  background: color-mix(in srgb, var(--ok, var(--bs-success)) 15%, transparent);
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--ok, var(--bs-success)) 20%, transparent);
+  display: inline-block;
+}
+.goal-congrats-text {
+  margin: 0 0.5em;
+}
+
+/* Engagement timeline styles */
+.engagement-summary .fw-bold { font-size: 1rem; }
+.engagement-timeline { display: flex; gap: 0.5rem; }
+.engagement-day { width: 56px; height: 64px; padding: 0.4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px; }
+.engagement-day-label { font-size: 0.75rem; }
+.engagement-day-date { font-weight: 700; font-size: 1rem; }
+.engagement-day.btn { border-width: 1px; }
+.engagement-day.btn-success { background: linear-gradient(180deg, #00C49F 0%, #00A57D 100%); color: white; }
+.engagement-day.btn-outline-secondary { background: white; color: #6c757d; }

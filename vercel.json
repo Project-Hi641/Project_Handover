@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/api/admin/:action", "destination": "/api/admin?action=:action" },
+    { "source": "/(.*\\.(?:js|css|map|png|jpg|jpeg|gif|svg|ico|txt|woff2?))", "destination": "/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

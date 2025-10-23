@@ -1,0 +1,70 @@
+.summary-card {
+  margin-bottom: 1.5rem;
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+
+.summary-controls {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.summary-controls label {
+  display: block;
+  font-size: 0.95em;
+  color: #333;
+  margin-bottom: 0.3em;
+}
+.summary-controls select {
+  padding: 0.3em 1.5em 0.3em 0.5em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+.summary-apply-btn {
+  background: #3cb371;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 1em;
+  margin-top: 1.2em;
+  transition: background 0.2s;
+}
+.summary-apply-btn:hover {
+  background: #2e995a;
+}
+
+.summary-export-card{
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  flex: 1;
+  min-width: 10%;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  padding: 2rem 2rem 3rem 2rem;
+  max-height: 80%;
+}
+
+.summary-export-card-container {
+  display: flex;
+  justify-content: center; /* horizontal centring */
+  margin-bottom: 3rem;
+}
+
+.summary-export-btn {
+  margin-top: 1rem;
+}
+
+
+
+
+
+

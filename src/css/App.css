@@ -1,0 +1,819 @@
+/* ==========================================================================
+   Global base + theme
+   ========================================================================== */
+:root {
+  /* Brand/header colours */
+  --header-bg: #7835ff;   /* light purple */
+  --header-fg: #ffffff;   /* white text/icons */
+
+  /* Header hover overlay on links/buttons */
+  --header-hover: rgba(255,255,255,.12);
+}
+
+/* Simple reset */
+* { box-sizing: border-box; }
+
+/* ==========================================================================
+   Header / Top Nav
+   - Header uses sticky positioning
+   - .topnav clusters: left = toggle + Dashboard, right = auth links
+   ========================================================================== */
+header {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Home page only
+ .topnav--home {
+   background: rgba(78, 25, 106) !important;
+   backdrop-filter: blur(10px) !important;
+   -webkit-backdrop-filter: blur(10px) !important;
+   border-bottom: 1px solid rgba(255,255,255,.08) !important;
+ }
+
+ .topnav--home .topnav-link {
+   color: #fff;
+   opacity: .9;
+ }
+ .topnav--home .topnav-link:hover {
+   opacity: 1;
+ } */
+
+
+/* Top nav bar wrapper */
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  gap: 8px;
+  color: var(--header-fg);
+}
+
+/* Left cluster: toggle + Dashboard */
+.topnav-left,
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Header links */
+.topnav-link {
+  color: var(--header-fg);
+  text-decoration: none;
+  padding: 8px 12px;      /* keeps it flush with the toggle */
+  border-radius: 8px;
+  line-height: 1;
+}
+.topnav-link:hover { background: var(--header-hover); }
+
+/* Toggle button (icon inherits currentColor = white) */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;      /* matches .topnav-link so it lines up nicely */
+  border: 0;
+  background: transparent;
+  color: var(--header-fg);
+  border-radius: 8px;
+  cursor: pointer;
+  line-height: 1;
+}
+.nav-toggle:hover { background: var(--header-hover); }
+.nav-toggle svg { width: 24px; height: 24px; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  background: #222;
+  padding: 10px;
+  text-align: center;
+  color: #d8d8d8;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Hero (home page)
+   ========================================================================== */
+/* .hero {
+  min-height: 1200px;
+  text-align: center;
+  background-image: url("../../assets/deadlift.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_title {
+  font-size: 100px;
+  margin: 0;
+  font-family: "Merriweather", serif;
+}
+
+.hero_subtitle {
+  font-size: 40px;
+  font-style: italic;
+}
+
+.hero_content {
+  color: #ffffff;
+  padding-top: 220px;
+}
+
+.hero_content a {
+  display: inline-block;
+  color: #fff;
+  background-color: #00000081;
+  border: 3px solid #fff;
+  border-radius: 3px;
+  padding: 15px 20px;
+  margin: 70px 50px 0 45px;
+  text-decoration: none;
+  font-size: 28px;
+  transition: transform 1s;
+}
+.hero_content a:hover { transform: scale(1.2); } */
+
+/* ==========================================================================
+   Forms / Typography
+   ========================================================================== */
+form {
+  font-size: 15px;
+  margin: 0;
+  padding: 5px 0;
+}
+
+form label { padding: 4px; margin-left: 10px; }
+
+form select {
+  font-size: 15px;
+  margin: 0 10px;
+  padding: 2px 1px;
+  border-radius: 3px;
+}
+
+form button {
+  margin: 0 7px;
+  padding: 2px 15px;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  margin: 10px;
+  margin-top: 100px;
+}
+
+/* =========================================================
+   THEME TOKENS (Testing for the color-blind in proguess)
+   ========================================================= */
+
+/* =========================================================
+   LIGHT THEME (Bootstrap default look)
+   ========================================================= */
+:root {
+  --bg: #ffffff;
+  --text: #212529;        /* Bootstrap body text */
+  --muted: #6c757d;       /* Bootstrap muted/secondary text */
+  --card: #ffffff;
+  --border: #dee2e6;      /* Bootstrap border gray */
+
+  /* Accent only for buttons/interactive components */
+  --accent: #0d6efd;      /* Bootstrap primary blue */
+
+  /* Bootstrap mappings */
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-border-color: var(--border);
+  --bs-card-bg: var(--card);
+  --bs-card-color: var(--text);
+  --bs-heading-color: var(--text);
+
+  /* Links: black in sidebars/navs, blue only for <a> inline */
+  --bs-link-color: var(--text);
+  --bs-link-hover-color: #000;
+  --bs-secondary-color: var(--muted);
+  --bs-secondary-color-rgb: 108,117,125;
+  --bs-tertiary-color: #adb5bd;
+
+  /* Buttons use Bootstrap’s default palette */
+  --bs-primary: #0d6efd;
+  --bs-success: #198754;
+  --bs-warning: #ffc107;
+  --bs-danger:  #dc3545;
+}
+
+/* Sidebar + nav links = black by default */
+.sidebar .nav-link {
+  color: #212529 !important;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:focus {
+  background-color: #e9ecef !important; /* Bootstrap active gray */
+  color: #212529 !important;
+}
+
+
+
+/* =========================================================
+   DARK THEME 
+   ========================================================= */
+html[data-theme="dark"] {
+  --bg: #0f172a;        /* slate-900 */
+  --text: #e5e7eb;      /* gray-200 */
+  --muted: #94a3b8;     /* slate-400 */
+  --card: #111827;      /* gray-900 */
+  --border: #1f2937;    /* gray-800 */
+  --accent: #a78bfa;    /* lighter purple */
+
+  /* Map to Bootstrap tokens (dark) */
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-border-color: var(--border);
+  --bs-card-bg: var(--card);
+  --bs-card-color: var(--text);
+  --bs-heading-color: var(--text);
+  --bs-link-color: var(--accent);
+  --bs-link-hover-color: var(--accent);
+
+  /* Secondary/tertiary text (dark) – brighter than default to stay readable */
+  --bs-secondary-color: #cbd5e1;               /* slate-300 */
+  --bs-secondary-color-rgb: 203, 213, 225;
+  --bs-tertiary-color: #94a3b8;                /* slate-400 */
+}
+
+/* =========================================================
+   GLOBAL SURFACES & TYPOGRAPHY
+   ========================================================= */
+
+body,
+.dashboard-main,
+.dashboard-content,
+.container,
+.container-fluid {
+  background: var(--bg) !important;
+  color: var(--bs-body-color) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--bs-heading-color) !important;
+}
+
+p, span, label, .form-label, small, .small,
+.text-muted, .text-secondary, .text-body-secondary, .form-text {
+  color: var(--bs-secondary-color) !important;
+}
+
+
+
+/* =========================================================
+   CARDS / PANELS
+   ========================================================= */
+
+.card, .dashboard-card, .panel, .bootstrap-card,
+.card-body, .card-header, .card-footer,
+.modal, .modal-content, .offcanvas, .offcanvas-body {
+  background: var(--card) !important;
+  color: var(--bs-body-color) !important;
+  border-color: var(--bs-border-color) !important;
+}
+
+/* =========================================================
+   NAVBAR / SIDEBAR
+   ========================================================= */
+
+.navbar, .navbar * {
+  background: var(--card) !important;
+  color: var(--bs-body-color) !important;
+  border-color: var(--bs-border-color) !important;
+}
+
+.sidebar, .sidebar .list-group, .sidebar .nav, .sidebar .nav-link {
+  background: var(--card) !important;
+  color: var(--bs-body-color) !important;
+  border-color: var(--bs-border-color) !important;
+}
+.sidebar .nav-link.active,
+.sidebar .nav-link:focus,
+.sidebar .nav-link:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: var(--bs-body-color) !important;
+}
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.nav-tabs { border-bottom: 1px solid var(--bs-border-color) !important; }
+.nav-tabs .nav-link {
+  color: var(--bs-body-color) !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+.nav-tabs .nav-link:hover {
+  border-color: var(--bs-border-color) var(--bs-border-color) transparent !important;
+}
+.nav-tabs .nav-link.active {
+  color: var(--bs-body-color) !important;
+  background: var(--card) !important;
+  border-color: var(--bs-border-color) var(--bs-border-color) transparent !important;
+}
+.tab-content {
+  background: var(--card) !important;
+  color: var(--bs-body-color) !important;
+  border: 1px solid var(--bs-border-color) !important;
+  border-top: none !important;
+  padding: 1rem;
+  border-radius: 0 0 .5rem .5rem;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+.form-control, .form-select, .form-check-label, .input-group-text {
+  background: var(--card) !important;
+  color: var(--bs-body-color) !important;
+  border-color: var(--bs-border-color) !important;
+}
+.form-control::placeholder { color: var(--bs-secondary-color) !important; }
+.form-control:disabled, .form-select:disabled {
+  background: color-mix(in srgb, var(--card) 90%, #000 10%) !important;
+  color: var(--bs-secondary-color) !important;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 .25rem rgba(139, 92, 246, .25) !important; /* purple glow */
+}
+
+/* Switches / checkboxes */
+.form-check-input {
+  background-color: var(--card) !important;
+  border-color: var(--bs-border-color) !important;
+}
+.form-check-input:checked {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.table { background: var(--card) !important; color: var(--bs-body-color) !important; }
+.table thead th { color: var(--bs-body-color) !important; border-color: var(--bs-border-color) !important; }
+.table td, .table th { border-color: var(--bs-border-color) !important; }
+
+/* =========================================================
+   BUTTONS / BADGES / ALERTS / DROPDOWNS
+   ========================================================= */
+
+.btn-primary { background-color: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
+.btn-outline-secondary { color: var(--bs-body-color) !important; border-color: var(--bs-border-color) !important; }
+
+.alert { background: var(--card) !important; color: var(--bs-body-color) !important; border-color: var(--bs-border-color) !important; }
+.dropdown-menu { background: var(--card) !important; border-color: var(--bs-border-color) !important; }
+.dropdown-item { color: var(--bs-body-color) !important; }
+.dropdown-item:hover, .dropdown-item:focus { background: rgba(255,255,255,.06) !important; }
+
+/* =========================================================
+   RECHARTS
+   ========================================================= */
+
+.recharts-text { fill: var(--bs-body-color) !important; }
+.recharts-legend-item-text { color: var(--bs-body-color) !important; }
+.recharts-cartesian-grid line { stroke: rgba(255,255,255,.12) !important; }
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-tick-line { stroke: var(--bs-border-color) !important; }
+
+
+/* Fix dark-mode colors for Bootstrap tables (Summary page) */
+.table {
+  /* map table variables theme */
+  --bs-table-bg: var(--card);
+  --bs-table-color: var(--bs-body-color);
+  --bs-table-border-color: var(--bs-border-color);
+
+  /* striped/hover backgrounds that still contrast in dark */
+  --bs-table-striped-bg: color-mix(in srgb, var(--card) 92%, #000 8%);
+  --bs-table-striped-color: var(--bs-body-color);
+  --bs-table-hover-bg: color-mix(in srgb, var(--card) 88%, #000 12%);
+  --bs-table-hover-color: var(--bs-body-color);
+}
+
+/* ensure cells/headers actually use those colors */
+
+/* links/buttons inside the table */
+.table a,
+.table .btn-link {
+  color: var(--bs-link-color) !important;
+}
+.table a:hover,
+.table .btn-link:hover {
+  color: var(--bs-link-hover-color) !important;
+}
+.table td, .table th {
+  color: var(--text) !important;
+}
+
+/* Color-blind friendly palette (good separations of hue + luminance)
+   Based on ColorBrewer/Okabe-Ito style */
+/* Deuteranomaly-focused palette (Okabe–Ito) */
+html[data-theme="cb"]{
+  /* Core hues (distinct under red-green deficiency) */
+  --cb-blue:    #0072B2;
+  --cb-orange:  #E69F00;
+  --cb-teal:    #009E73;  /* “green” replacement that still separates from orange/blue */
+  --cb-magenta: #CC79A7;  /* use this instead of red */
+  --cb-sky:     #56B4E9;
+  --cb-yellow:  #F0E442;
+  --cb-black:   #000000;
+  --bs-danger-rgb: 204, 121, 167;
+
+  /* Bootstrap remap: avoid pure red vs green pairings */
+  --bs-primary: var(--cb-blue);
+  --bs-success: var(--cb-teal);     /* “good” */
+  --bs-warning: var(--cb-orange);
+  --bs-danger:  var(--cb-magenta);  /* replace red with magenta */
+  --bs-link-color: var(--cb-blue);
+  --bs-link-hover-color: var(--cb-blue);
+  /* optional: make the subtle/alert variants match magenta too */
+  --bs-danger-text-emphasis: #6b2f56;   /* darker magenta for text */
+  --bs-danger-bg-subtle:     #f5e3ef;   /* very light magenta bg */
+  --bs-danger-border-subtle: #deb0cf;   /* light magenta border */
+  /* Chart series (use these vars in Recharts) */
+  --series-steps:        var(--cb-blue);
+  --series-avg7:         var(--cb-teal);
+  --series-avg21:        var(--cb-orange);
+  --series-avg66:        var(--cb-magenta);
+  --series-avg90:        var(--cb-sky);
+
+  /* Heart zones (no red/green conflict) */
+  --series-hr-rest:      var(--cb-sky);
+  --series-hr-light:     var(--cb-blue);
+  --series-hr-moderate:  var(--cb-orange);
+  --series-hr-hard:      var(--cb-magenta);
+
+  /* Sleep stages */
+  --series-sleep-rem:    var(--cb-sky);
+  --series-sleep-core:   var(--cb-blue);
+  --series-sleep-deep:   var(--cb-magenta);
+  --series-sleep-awake:  var(--cb-orange);
+}
+
+/* Optional: make header badges align in CB mode */
+html[data-theme="cb"] .badge.bg-primary   { background: var(--series-steps) !important; }
+html[data-theme="cb"] .badge.bg-danger    { background: var(--series-hr-hard) !important; }
+html[data-theme="cb"] .badge.bg-secondary { background: var(--series-sleep-core) !important; }
+
+
+/* fix avatar is inside the sidebar profile block */
+.sidebar .dashboard-profile .rounded-circle,
+.sidebar .dashboard-profile .text-white,
+.sidebar .dashboard-profile .avatar-initials {
+  color: #fff !important;
+}
+
+/* Use the CB magenta everywhere 'danger' is referenced */
+html[data-theme="cb"] {
+  --bs-danger: var(--cb-magenta, #CC79A7);
+  --bs-danger-rgb: 204,121,167;
+  --bs-danger-text-emphasis: #6b2f56;
+  --bs-danger-bg-subtle: #f5e3ef;
+  --bs-danger-border-subtle: #deb0cf;
+}
+
+/* Solid danger button */
+html[data-theme="cb"] .btn-danger {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--cb-magenta, #CC79A7);
+  --bs-btn-border-color: var(--cb-magenta, #CC79A7);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #b56798;
+  --bs-btn-hover-border-color: #ae5e91;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #a9548a;
+  --bs-btn-active-border-color: #a24c83;
+  --bs-btn-disabled-bg: var(--cb-magenta, #CC79A7);
+  --bs-btn-disabled-border-color: var(--cb-magenta, #CC79A7);
+  --bs-btn-focus-shadow-rgb: 204,121,167;
+}
+
+/* Outline danger button (the missing box) */
+html[data-theme="cb"] .btn-outline-danger {
+  --bs-btn-color: var(--cb-magenta, #CC79A7);
+  --bs-btn-border-color: var(--cb-magenta, #CC79A7);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--cb-magenta, #CC79A7);
+  --bs-btn-hover-border-color: var(--cb-magenta, #CC79A7);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--cb-magenta, #CC79A7);
+  --bs-btn-active-border-color: var(--cb-magenta, #CC79A7);
+  --bs-btn-focus-shadow-rgb: 204,121,167;
+
+ 
+  border: 1px solid var(--cb-magenta, #CC79A7) !important;
+  color: var(--cb-magenta, #CC79A7) !important;
+}
+
+/* Alerts/utilities just in case */
+html[data-theme="cb"] .alert-danger{
+  --bs-alert-color:  #6b2f56;
+  --bs-alert-bg:     #f5e3ef;
+  --bs-alert-border-color: #deb0cf;
+}
+html[data-theme="cb"] .text-danger   { color: var(--cb-magenta, #CC79A7) !important; }
+html[data-theme="cb"] .border-danger { border-color: var(--cb-magenta, #CC79A7) !important; }
+html[data-theme="cb"] .bg-danger     { background-color: var(--cb-magenta, #CC79A7) !important; }
+
+
+
+/* =========================
+   NAVBAR tightening + brand
+   ========================= */
+
+/* Replace the overly-broad ".navbar, .navbar *" effect */
+.navbar {
+  background: var(--card) !important;
+  color: var(--bs-body-color) !important;
+  border-color: var(--bs-border-color) !important;
+}
+
+/* Ensure header brand/links stay white on the purple header */
+header .navbar-brand,
+header .navbar .nav-link,
+.topnav-link {
+  color: var(--header-fg) !important;
+}
+
+/* =========================
+   TABLE text color fix
+   ========================= */
+
+.table td,
+.table th {
+  color: var(--bs-table-color, var(--bs-body-color)) !important;
+}
+
+
+/* =========================================================
+   HIGH CONTRAST THEME
+   ========================================================= */
+html[data-theme="hc"] {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #e5e5e5;
+  --card: #000000;
+  --border: #ffffff;
+
+  --accent:   #ffff00; /* yellow */
+  --accent-2: #00ffff; /* cyan */
+  --accent-3: #ff00ff; /* magenta */
+  --accent-4: #ff6600; /* orange */
+  --accent-5: #00ff00; /* green */
+  --accent-6: #ff0000; /* red */
+
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-border-color: var(--border);
+  --bs-card-bg: var(--card);
+  --bs-card-color: var(--text);
+  --bs-heading-color: var(--text);
+  --bs-link-color: var(--accent);
+  --bs-link-hover-color: var(--accent);
+
+  --bs-primary: var(--accent);
+  --bs-success: var(--accent-5);
+  --bs-warning: var(--accent-4);
+  --bs-danger:  var(--accent-6);
+
+  --bs-secondary-color: #e5e5e5;
+  --bs-secondary-color-rgb: 229,229,229;
+  --bs-tertiary-color: #bdbdbd;
+}
+
+html[data-theme="hc"],
+html[data-theme="hc"] body,
+html[data-theme="hc"] .card,
+html[data-theme="hc"] .navbar,
+html[data-theme="hc"] .sidebar {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+html[data-theme="hc"] h1,
+html[data-theme="hc"] h2,
+html[data-theme="hc"] h3,
+html[data-theme="hc"] h4,
+html[data-theme="hc"] h5,
+html[data-theme="hc"] h6,
+html[data-theme="hc"] p,
+html[data-theme="hc"] span,
+html[data-theme="hc"] label {
+  color: var(--text) !important;
+}
+
+html[data-theme="hc"] .btn-primary { background: var(--accent)   !important; color: #000 !important; }
+html[data-theme="hc"] .btn-success { background: var(--accent-5) !important; color: #000 !important; }
+html[data-theme="hc"] .btn-warning { background: var(--accent-4) !important; color: #000 !important; }
+html[data-theme="hc"] .btn-danger  { background: var(--accent-6) !important; color: #000 !important; }
+
+html[data-theme="hc"] .text-muted,
+html[data-theme="hc"] .text-secondary,
+html[data-theme="hc"] .text-body-secondary,
+html[data-theme="hc"] .form-text,
+html[data-theme="hc"] small,
+html[data-theme="hc"] .small {
+  color: var(--bs-secondary-color) !important;
+}
+
+html[data-theme="hc"] .form-control::placeholder,
+html[data-theme="hc"] textarea::placeholder {
+  color: var(--bs-secondary-color) !important;
+}
+
+html[data-theme="hc"] ::selection,
+html[data-theme="hc"] input::selection,
+html[data-theme="hc"] textarea::selection {
+  background: #ffff00;
+  color: #000;
+}
+html[data-theme="hc"] ::-moz-selection,
+html[data-theme="hc"] input::-moz-selection,
+html[data-theme="hc"] textarea::-moz-selection {
+  background: #ffff00;
+  color: #000;
+}
+
+/* === Recharts tooltip styling for Dark Mode === */
+html[data-theme="dark"] .recharts-default-tooltip {
+  background: #1e1e1e !important;     /* dark gray box */
+  border: 1px solid #444 !important;  /* subtle border */
+  color: #fff !important;             /* white text */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5) !important;
+}
+
+html[data-theme="dark"] .recharts-tooltip-label,
+html[data-theme="dark"] .recharts-tooltip-item {
+  color: #fff !important;
+}
+
+html[data-theme="dark"] .recharts-tooltip-cursor {
+  stroke: #888 !important;
+  stroke-opacity: .6 !important;
+}
+
+/* === Recharts tooltip styling for High Contrast Mode === */
+html[data-theme="hc"] .recharts-default-tooltip {
+  background: #000 !important;        /* full black */
+  border: 1px solid #fff !important;  /* sharp white border */
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="hc"] .recharts-tooltip-label,
+html[data-theme="hc"] .recharts-tooltip-item {
+  color: #fff !important;
+}
+
+html[data-theme="hc"] .recharts-tooltip-cursor {
+  stroke: #fff !important;
+  stroke-opacity: .7 !important;
+}
+
+/* === Shared tweaks for axis/grid in dark & hc === */
+html[data-theme="dark"] .recharts-text,
+html[data-theme="hc"] .recharts-text {
+  fill: #fff !important;
+}
+
+html[data-theme="dark"] .recharts-cartesian-grid line,
+html[data-theme="hc"] .recharts-cartesian-grid line {
+  stroke: #aaa !important;
+  stroke-opacity: .2 !important;
+}
+
+
+/* Fix dark-mode colors for Bootstrap tables (Summary page) */
+.table {
+  /* map table variables to theme */
+  --bs-table-bg: var(--card);
+  --bs-table-color: var(--bs-body-color);
+  --bs-table-border-color: var(--bs-border-color);
+
+  /* striped/hover backgrounds that still contrast in dark */
+  --bs-table-striped-bg: color-mix(in srgb, var(--card) 92%, #000 8%);
+  --bs-table-striped-color: var(--bs-body-color);
+  --bs-table-hover-bg: color-mix(in srgb, var(--card) 88%, #000 12%);
+  --bs-table-hover-color: var(--bs-body-color);
+}
+
+
+/* links/buttons inside the table */
+.table a,
+.table .btn-link {
+  color: var(--bs-link-color) !important;
+}
+.table a:hover,
+.table .btn-link:hover {
+  color: var(--bs-link-hover-color) !important;
+}
+.table td, .table th {
+  color: var(--text) !important;
+}
+
+/* =========================================================
+   Avatar styling (override)
+   ========================================================= */
+:root .dashboard-avatar {
+  background: #1f2430 !important;
+}
+:root .dashboard-avatar-fallback {
+  color: #d0d3d8 !important;
+}
+/* fix bug the main page color */
+.force-white { color: #fff !important; }
+
+/* ===== Chart series tokens (defaults for Light) ===== */
+:root {
+  /* Steps */
+  --series-steps:   #0d6efd;
+  --series-avg7:    #198754;
+  --series-avg21:   #ffc107;
+  --series-avg66:   #dc3545;
+  --series-avg90:   #6f42c1;
+
+  /* Heart zones */
+  --series-hr-rest:     #17a2b8; /* teal */
+  --series-hr-light:    #198754; /* green */
+  --series-hr-moderate: #ffc107; /* yellow */
+  --series-hr-hard:     #dc3545; /* red */
+
+  /* Sleep stages */
+  --series-sleep-rem:   #60a5fa;
+  --series-sleep-core:  #2563eb;
+  --series-sleep-deep:  #a78bfa;
+  --series-sleep-awake: #ffa94d;
+}
+
+/* ===== Deuteranomaly (CB) overrides ===== */
+html[data-theme="cb"]{
+  --series-steps:        var(--cb-blue);     /* #0072B2 */
+  --series-avg7:         var(--cb-teal);     /* #009E73 */
+  --series-avg21:        var(--cb-orange);   /* #E69F00 */
+  --series-avg66:        var(--cb-magenta);  /* #CC79A7 */
+  --series-avg90:        var(--cb-sky);      /* #56B4E9 */
+
+  --series-hr-rest:      var(--cb-sky);
+  --series-hr-light:     var(--cb-blue);
+  --series-hr-moderate:  var(--cb-orange);
+  --series-hr-hard:      var(--cb-magenta);
+
+  --series-sleep-rem:    var(--cb-sky);
+  --series-sleep-core:   var(--cb-blue);
+  --series-sleep-deep:   var(--cb-magenta);
+  --series-sleep-awake:  var(--cb-orange);
+}
+
+/* ===== GoalSetting pie tokens (LIGHT defaults) ===== */
+:root {
+  --goal-progress:  #00C49F;  /* progress */
+  --goal-over:      #FF8042;  /* over target */
+  --goal-remaining: #E0E0E0;  /* neutral remainder ring */
+}
+
+/* DARK tweaks: darker neutral ring only */
+html[data-theme="dark"] {
+  --goal-remaining: #3a3f4b;
+}
+
+/* HIGH-CONTRAST tweaks: stark neutral ring */
+html[data-theme="hc"] {
+  --goal-remaining: #444;
+}
+
+/* DEUTERANOMALY (CB): map to CB-safe hues only here */
+html[data-theme="cb"]{
+  --goal-progress:  var(--cb-blue,   #0072B2);  /* progress becomes blue */
+  --goal-over:      var(--cb-orange, #E69F00);  /* over target becomes orange */
+}
+
+:root {
+  /* status tokens used by GoalSetting pies */
+  --ok: var(--bs-success);
+  --warn: var(--bs-warning);
+  --track-muted: var(--bs-tertiary-color, #e0e0e0);
+}
+

@@ -1,0 +1,189 @@
+:root {
+  --sb-bg: var(--bs-body-bg, #fff);
+  --sb-border: rgba(0,0,0,.08);
+  --sb-muted: #6c757d;
+  --sb-hover: rgba(0,0,0,.04);
+  --sb-active-bg: #0d6efd1a;   /* primary tint */
+  --sb-active-stroke: #0d6efd33;
+  --sb-link: inherit;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Layout host: wraps <Sidebar/> + <section class="dashboard-content">
+   Add/remove the class "sb-collapsed" on THIS element to hide the rail.
+   ────────────────────────────────────────────────────────────── */
+.dashboard-main {
+  display: flex;
+  min-height: 100svh;
+}
+
+/* Content should fill remaining space */
+.dashboard-content {
+  flex: 1 1 auto;
+  min-width: 0; /* prevents overflow with wide tables/charts */
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Sidebar rail
+   ────────────────────────────────────────────────────────────── */
+.dashboard-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  flex: 0 0 260px;                 /* fixed width in a flex layout */
+  background: var(--sb-bg);
+  border-right: 1px solid var(--sb-border);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+  overflow: hidden;                /* ensures slide-out looks clean */
+
+  /* Smooth collapse */
+  transition:
+    transform .25s ease,
+    width .25s ease,
+    flex-basis .25s ease,
+    padding .25s ease,
+    border-color .25s ease;
+  will-change: transform, width, flex-basis, padding;
+}
+
+/* Collapsed state (applied via .sb-collapsed on the wrapper) */
+.sb-collapsed .dashboard-sidebar {
+  width: 0;
+  flex-basis: 0;
+  padding: 0;
+  border: 0;
+  transform: translateX(-100%);
+}
+
+/* Prevent tabbing into hidden controls when collapsed */
+.sb-collapsed .dashboard-sidebar * {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Profile block
+   ────────────────────────────────────────────────────────────── */
+.dashboard-profile {
+  text-align: center;
+  padding: 6px 0 10px;
+}
+
+.dashboard-avatar {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #f2f4f7;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+}
+.dashboard-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.dashboard-avatar-fallback { font-size: 22px; color: #444; }
+
+.dashboard-username {
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+.dashboard-email {
+  font-size: 0.8rem;
+  color: var(--sb-muted);
+  word-break: break-word;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Nav list
+   ────────────────────────────────────────────────────────────── */
+.dashboard-nav {
+  list-style: none;
+  padding: 8px 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--sb-link);
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.dashboard-link:hover { background: var(--sb-hover); text-decoration: none; }
+.dashboard-link:focus-visible { outline: 2px solid #0d6efd; outline-offset: 2px; }
+.dashboard-link.active {
+  background: var(--sb-active-bg);
+  color: #0d6efd;
+  box-shadow: inset 0 0 0 1px var(--sb-active-stroke);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Width tweak on medium screens
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .dashboard-sidebar { flex-basis: 228px; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Mobile: stack the sidebar; collapse = display none
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .dashboard-main { display: block; }
+  .dashboard-content { padding-top: 8px; }
+  .dashboard-sidebar {
+    position: static;
+    height: auto;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--sb-border, rgba(0,0,0,.08));
+    border-radius: 0;
+    transform: none; /* ensure no slide offset in stacked mode */
+  }
+  .sb-collapsed .dashboard-sidebar {
+    display: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Reduced motion respect
+   ────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-sidebar { transition: none; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Dark mode tweaks
+   ────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sb-border: rgba(255,255,255,.12);
+    --sb-hover: rgba(255,255,255,.06);
+    --sb-active-bg: rgba(13,110,253,.18);
+    --sb-active-stroke: rgba(13,110,253,.35);
+  }
+  .dashboard-avatar { background: #1f2430; }
+  .dashboard-avatar-fallback { color: #d0d3d8; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Optional: header toggle button styling
+   ────────────────────────────────────────────────────────────── */
+.nav-toggle {
+  font: inherit;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
+}
+.nav-toggle:hover { opacity: .8; }
