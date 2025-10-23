@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://healthkit-data-toolkit.vercel.app", 
+        target: process.env.VITE_API_BASE, 
         changeOrigin: true,
         secure: true,
       },
